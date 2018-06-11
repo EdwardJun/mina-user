@@ -1,0 +1,49 @@
+/* Value */
+$base-margin: 15px;
+$portrait-side: 35px;
+$content-font: 14px;
+$almanac-fs: 12px 14px 18px 60px;
+$cover-side: 180px;
+$uiWidth: 14;
+@function px2Rem($px) {
+  @return $px / $uiWidth * 1rem;
+}
+
+/* Color */
+$primary: #ff8c8d;
+$primary-dark: #dc716b;
+$disabled: #e0e0e0;
+$disabled-font: #9e9e9e;
+$sub-primary: #5c9dff;
+$green: #00c89f;
+$green-dark: #00b38a;
+$red: #ff7b80;
+$red-dark: #e15f63;
+$blue: #33bded;
+$blue-dark: #2e80ae;
+$border-color-sub: #d9d9d9;
+$border-color: #e5e5e5;
+$content-color-sub: rgba(0, 0, 0, .8);
+$content-color: #000;
+$grey: #808080;
+$black: #000;
+$white: #fff;
+$almanac-border: #f4f4f4;
+$placeholder-font: #b3b3b3;
+$login-primary: #ff8c86;
+
+/* WEUI */
+$access-active: #ECECEC;
+$cell-ft: #999999;
+$cell-access-arrow: #c8c8c8;
+
+/* Float */
+.fl {float: left;}
+.fr {float: right;}
+
+.pr {position: relative;}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

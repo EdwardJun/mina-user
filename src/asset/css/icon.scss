@@ -1,0 +1,78 @@
+@import "common";
+
+@mixin modo-icon($width) {
+  display: inline-block;
+  width: $width;
+  height: $width;
+  background-size: $width $width;
+}
+
+.modo-icon-loading-rotation {
+  @include Rotation(1s)
+}
+
+.modo-icon {
+  @include modo-icon(48px);
+}
+
+.modo-msg-icon {
+  @include modo-icon(40px);
+}
+
+.modo-icon-toolbar__expression_normal {
+  background-image: url("~asset/img/toolbar_icon_expression_normal.png");
+  &:active {
+    background-image: url("~asset/img/toolbar_icon_expression_click.png");
+  }
+}
+
+.modo-icon-toolbar__image_normal {
+  background-image: url("~asset/img/toolbar_icon_image_normal.png");
+  &:active {
+    background-image: url("~asset/img/toolbar_icon_image_click.png");
+  }
+}
+
+.modo-icon-toolbar__information_normal {
+  background-image: url("~asset/img/toolbar_icon_information_normal.png");
+  &:active {
+    background-image: url("~asset/img/toolbar_icon_information_click.png");
+  }
+}
+
+.modo-icon-toolbar__send_normal {
+  background-image: url("~asset/img/toolbar_icon_send_normal.png");
+  &:active {
+    background-image: url("~asset/img/toolbar_icon_send_click.png");
+  }
+}
+
+.modo-icon-toolbar__periodical_normal {
+  background-image: url("~asset/img/toolbar_icon_periodical_normal.png");
+  &:active {
+    background-image: url("~asset/img/toolbar_icon_periodical_click.png");
+  }
+}
+
+.modo-icon-toolbar__ticket_normal {
+  background-image: url("~asset/img/toolbar_icon_ticket_normal.png");
+  &:active {
+    background-image: url("~asset/img/toolbar_icon_ticket_click.png");
+  }
+}
+
+.modo-icon-toolbar__keyboard {
+  background-image: url("~asset/img/toolbar_icon_keyboard.png");
+}
+
+.modo-icon-toolbar__voice {
+  background-image: url("~asset/img/toolbar_icon_voice.png");
+}
+
+.modo-icon-msg_status_fail {
+  background-image: url("~asset/img/icon_status_fail.png");
+}
+
+.modo-icon-msg_status_sending {
+  background-image: url("~asset/img/icon_status_sending.png");
+}

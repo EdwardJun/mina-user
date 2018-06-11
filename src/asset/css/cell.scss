@@ -1,0 +1,143 @@
+@import "value";
+@import "common";
+@import "global";
+
+/*Weui*/
+.weui-cells {
+  margin-top: 30px;
+  background-color: $white;
+  font-size: 34px;
+  line-height: 50px;
+  color: #000;
+  overflow: hidden;
+  position: relative;
+  &:before {
+    @extend .border-top;
+    z-index: 2;
+  }
+  &:after {
+    @extend .border-bottom;
+    z-index: 2;
+  }
+}
+
+.weui-cells__title {
+  margin-top: 30px;
+  margin-bottom: 16px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: $grey;
+  font-size: 34px;
+
+  & + .weui-cells {
+    margin-top: 0;
+  }
+}
+
+.weui-cells__tips {
+  margin-top: 16px;
+  color: $grey;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 34px;
+}
+
+.weui-cell {
+  padding: 20px 30px;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  -webkit-box-align: center;
+  &:before {
+    @extend .border-top;
+    left: 30px;
+    z-index: 2;
+  }
+  &:first-child {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.weui-cell_primary {
+  align-items: flex-start;
+}
+
+.weui-cell__hd {
+  position: relative;
+  margin-right: 20px;
+}
+
+.weui-cell__bd {
+  flex: 1;
+  .weui-cell__main {
+    font-size: 34px;
+    color: #000000;
+    max-width: 400px;
+    @extend .text-ellipsis;
+  }
+  .weui-cell__sub {
+    font-size: 28px;
+    color: #aaaaaa;
+    max-width: 550px;
+    @extend .text-ellipsis;
+  }
+}
+
+.weui-cell__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+}
+
+.weui-cell__ft {
+  text-align: right;
+  color: $cell-ft;
+}
+
+.weui-cell_access {
+  color: inherit;
+  &:active {
+    background-color: $access-active;
+  }
+  .weui-cell__ft {
+    padding-right: 26px;
+    position: relative;
+    min-height: 50px;
+    &:after {
+      @include border-arrow(16px, 4px, $cell-access-arrow);
+      transform: rotate(45deg);
+      top: 16px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.weui-badge {
+  display: none;
+  padding: .15em .4em;
+  min-width: 16px;
+  border-radius: 36px;
+  background-color: #F43530;
+  color: #FFFFFF;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 24px;
+  vertical-align: middle;
+  &.show {
+    display: inline-block;
+  }
+
+  /* 以下可以考虑分享 */
+  position: absolute;
+  top: -.4em;
+  right: -.4em;
+}
+
+.weui-badge_dot {
+  padding: .4em;
+  min-width: 0;
+}

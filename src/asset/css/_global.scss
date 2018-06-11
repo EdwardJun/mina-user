@@ -1,0 +1,239 @@
+@import "value";
+/* Global */
+* {
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  // -ms-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+img {
+  border: 0 none;
+  // vertical-align: top
+}
+
+input, select, button, h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-family: inherit
+}
+
+strong {
+  font-weight: 700
+}
+
+s {
+  text-decoration: none
+}
+
+a {
+  text-decoration: none;
+  // color: #666
+}
+
+a:visited {
+  color: #666
+}
+
+::-webkit-input-placeholder {
+  color: #cbcbcb;
+}
+
+:-moz-placeholder {
+  color: #cbcbcb;
+}
+
+::-moz-placeholder {
+  color: #cbcbcb;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #cbcbcb;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #cbcbcb;
+}
+
+body {
+  margin: 0 auto;
+  // height: 100%;
+  font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  color: #666;
+  -webkit-text-size-adjust: 100% !important;
+  background-color: #f4f4f4;
+  font-size: 34px;
+}
+
+.fix-iphonex-button {
+    bottom:68px!important;
+}
+.fix-iphonex-button:after {
+    content: ' ';
+    position: fixed;
+    bottom: 0!important;
+    left: 0;
+    height: 68px!important;
+    width: 100%;
+    background: #fff;
+    z-index: 99;
+}
+
+/* 颜色 */
+.green {
+  color: $green;
+}
+
+a.green:active,
+a:active .green {
+  color: $green-dark;
+}
+
+.red {
+  color: $red;
+}
+
+a.red:active,
+a:active .red {
+  color: $red-dark;
+}
+
+.blue {
+  color: $blue;
+}
+
+a.blue:active,
+a:active .blue {
+  color: $blue-dark;
+}
+
+.clearfix:after {
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block
+}
+
+@mixin flex-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: flex;
+}
+
+@mixin flex-wrap {
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+
+@mixin single-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin multi-text-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+@mixin img-ratio {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  overflow: hidden;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+@mixin img-ratio-1-1 {
+  @include img-ratio;
+  padding-bottom: 100%;
+}
+
+@mixin img-ratio-4-3 {
+  @include img-ratio;
+  padding-bottom: 75%;
+}
+
+@mixin scale-half {
+  -webkit-transform-origin: 0 0;
+  transform-origin: 50% 50%;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+}
+
+@mixin scale-ratio($ratio) {
+  -webkit-transform-origin: 0 0;
+  transform-origin: 50% 50%;
+  -webkit-transform: scale($ratio);
+  transform: scale($ratio);
+}
+
+@mixin border-arrow($len, $blur, $color) {
+  content: ' ';
+  width: $len;
+  height: $len;
+  position: absolute;
+  border: {
+    width: $blur $blur 0 0;
+    color: $color;
+    style: solid;
+  }
+  /*-webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);*/
+}
+@mixin border-around($color, $radius) {
+    &:before {
+        box-sizing: border-box;
+        content: " ";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $color;
+        border: 1px solid $color;
+        border-radius: $radius * 2;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(.5);
+        transform: scale(.5);
+    }
+}
+
+@mixin btn-radio-around($width, $color, $activeColor) {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $width;
+    height: $width;
+    box-sizing: border-box;
+    border: 2px solid $color;
+    border-radius: 50%;
+    &.active {
+        border-color: $activeColor;
+        &:after {
+            $insideWidth: $width - 12;
+            content: '';
+            width: $insideWidth;
+            height: $insideWidth;
+            border-radius: 50%;
+            background-color: $activeColor;
+        }
+    }
+}
+
+.text-ellipsis {
+  @include single-text-ellipsis;
+}
+
+.multi-text-ellipsis {
+  @include multi-text-ellipsis;
+}

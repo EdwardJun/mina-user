@@ -1,0 +1,152 @@
+@import "value";
+@import "global";
+
+/* Base */
+.iphone-x {
+  padding-bottom: 64px;
+}
+
+.base-margin-left-right {
+  margin: 0 $base-margin;
+}
+
+.base-border {
+  position: relative;
+}
+
+.base-border-top, .base-border-bottom, .base-border-left, .base-border-right {
+  @extend .base-border;
+}
+
+.base-border-top:before, .base-border-bottom:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  color: $border-color
+}
+
+.base-border-left:before, .base-border-right:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  color: $border-color
+}
+
+.border-top {
+  @extend .base-border-top;
+  &:before {
+    top: 0;
+    border-top: 1px solid $border-color;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+  }
+}
+
+.border-bottom {
+  @extend .base-border-bottom;
+  &:after {
+    bottom: 0;
+    border-bottom: 1px solid $border-color;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(0.5)
+  }
+}
+
+.border-left {
+  @extend .base-border-left;
+  &:before {
+    left: 0;
+    border-left: 1px solid $border-color;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleX(.5);
+    transform: scaleX(.5);
+  }
+}
+
+.border-right {
+  @extend .base-border-right;
+  &:after {
+    right: 0;
+    border-right: 1px solid $border-color;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleX(.5);
+    transform: scaleX(0.5)
+  }
+}
+
+.portrait {
+  width: $portrait-side;
+  height: $portrait-side;
+  border-radius: 50%;
+}
+
+// 底部菜单多按钮公共样式
+.footer-menu-wrap {
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  box-sizing: border-box;
+  .item {
+    flex: 1;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 10px;
+    color: $primary;
+    border: 2px solid $primary;
+    border-radius: 10px;
+    text-align: center;
+    &.active {
+      background-color: $primary;
+      color: #fff;
+    }
+    &.disabled {
+      background-color: #d9d9d9;
+      border-color: #d9d9d9;
+      color: #fff;
+    }
+  }
+}
+
+// 懒加载列表底部
+.list-view-bottom-tip {
+  width: 100%;
+  padding: 30px 0;
+  font-size: 28px;
+  color: #aaa;
+  text-align: center;
+}
+
+// 消息内容默认padding
+.content-default-padding {
+  padding: 20px 20px 16px;
+}
+
+// 循环旋转样式
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@mixin Rotation($time) {
+  -webkit-transform: rotate(360deg);
+  animation: rotation $time linear infinite;
+  -moz-animation: rotation $time linear infinite;
+  -webkit-animation: rotation $time linear infinite;
+  -o-animation: rotation $time linear infinite;
+}
